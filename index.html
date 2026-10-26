@@ -7,7 +7,50 @@
 </head>
 <body>
 
-  <!-- tempel semua isi dari CodePen di sini (h1 sampai </script>) -->
+  <h1>Kalkulator Sederhana</h1>
+
+  <label>Bilangan Pertama:</label><br>
+  <input type="number" id="bilangan1"><br><br>
+
+  <label>Operator:</label><br>
+  <select id="operator">
+    <option value="+">Penjumlahan (+)</option>
+    <option value="-">Pengurangan (-)</option>
+    <option value="*">Perkalian (×)</option>
+    <option value="/">Pembagian (÷)</option>
+  </select><br><br>
+
+  <label>Bilangan Kedua:</label><br>
+  <input type="number" id="bilangan2"><br><br>
+
+  <button onclick="hitung()">Hitung</button>
+
+  <h2 id="hasil">Hasil: </h2>
+
+  <script>
+    function hitung() {
+      var bilangan1 = parseFloat(document.getElementById("bilangan1").value);
+      var bilangan2 = parseFloat(document.getElementById("bilangan2").value);
+      var operator = document.getElementById("operator").value;
+      var hasil;
+
+      if (operator === "+") {
+        hasil = bilangan1 + bilangan2;
+      } else if (operator === "-") {
+        hasil = bilangan1 - bilangan2;
+      } else if (operator === "*") {
+        hasil = bilangan1 * bilangan2;
+      } else if (operator === "/") {
+        if (bilangan2 === 0) {
+          hasil = "Tidak bisa dibagi nol";
+        } else {
+          hasil = bilangan1 / bilangan2;
+        }
+      }
+
+      document.getElementById("hasil").innerHTML = "Hasil: " + hasil;
+    }
+  </script>
 
 </body>
 </html>
